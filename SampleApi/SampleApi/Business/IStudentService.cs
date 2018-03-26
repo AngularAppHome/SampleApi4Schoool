@@ -10,5 +10,7 @@ namespace SampleApi.Business
     {
         List<Student> GetList();
         bool InsertStudent(Student std);
+        bool UpdateStudent(Student std);
+        bool DeleteStudent(int? id);
     }
 }

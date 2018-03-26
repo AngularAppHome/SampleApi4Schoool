@@ -19,8 +19,26 @@ namespace SampleApi.Controllers
         [HttpPost]
         public IHttpActionResult SaveStudent(Student std)
         {
-            stdService.InsertStudent(std);
-            return Ok();
+            var isSave = stdService.InsertStudent(std);
+            if (isSave == true)
+                return Ok();
+            return BadRequest();
+        }
+        [HttpPut]
+        public IHttpActionResult UpdateStudent(Student std)
+        {
+            var isUpdate = stdService.UpdateStudent(std);
+            if (isUpdate == true)
+                return Ok();
+            return BadRequest();
+        }
+        [HttpDelete]
+        public IHttpActionResult RemoveStudent(int? id)
+        {
+            var isDelete = stdService.DeleteStudent(id);
+            if (isDelete == true)
+                return Ok();
+            return BadRequest();
         }
     }
 }
